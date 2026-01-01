@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to TXT Converter | Professional Plain Text File Generator</title>
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:title" content="Text to TXT Converter | Professional Tool">
+    <meta property="og:description" content="Convert plain text to downloadable TXT files instantly. Modern, minimalist, and works on all devices.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">
+    <meta property="og:url" content="https://text-to-txt.thisizasif.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Text to TXT Converter | Professional Tool">
+    <meta name="twitter:description" content="Convert plain text to downloadable TXT files instantly. Modern, minimalist, and works on all devices.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">
+    <meta name="twitter:creator" content="@thisizasif">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="description" content="Professional Text to TXT converter. Transform any plain text into downloadable .txt files instantly. Works on all devices.">
+    <meta name="keywords" content="text converter, txt file, download text, plain text, file generator, thisizasif">
+    <meta name="author" content="thisizasif">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #e0e0ff;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+        
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            background: linear-gradient(to right, #00dbde, #fc00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #a0a0ff;
+            margin-bottom: 30px;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .editor-section, .options-section {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(20, 20, 40, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(100, 100, 255, 0.1);
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #00dbde;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: #fc00ff;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 300px;
+            background: rgba(10, 10, 25, 0.8);
+            border: 1px solid rgba(100, 100, 255, 0.3);
+            border-radius: 10px;
+            color: #e0e0ff;
+            padding: 15px;
+            font-size: 1rem;
+            font-family: 'Exo 2', sans-serif;
+            resize: vertical;
+            transition: all 0.3s;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #00dbde;
+            box-shadow: 0 0 15px rgba(0, 219, 222, 0.3);
+        }
+        
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #00dbde, #0099ff);
+            color: white;
+            flex: 2;
+            min-width: 200px;
+        }
+        
+        .btn-secondary {
+            background: rgba(100, 100, 255, 0.2);
+            color: #a0a0ff;
+            border: 1px solid rgba(100, 100, 255, 0.3);
+            flex: 1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to right, #0099ff, #00dbde);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(100, 100, 255, 0.3);
+            color: #ffffff;
+        }
+        
+        .file-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        label {
+            color: #a0a0ff;
+            font-weight: 500;
+        }
+        
+        input[type="text"] {
+            padding: 12px 15px;
+            background: rgba(10, 10, 25, 0.8);
+            border: 1px solid rgba(100, 100, 255, 0.3);
+            border-radius: 8px;
+            color: #e0e0ff;
+            font-size: 1rem;
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #00dbde;
+            box-shadow: 0 0 10px rgba(0, 219, 222, 0.2);
+        }
+        
+        .social-sharing {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(100, 100, 255, 0.2);
+        }
+        
+        .social-title {
+            margin-bottom: 15px;
+            color: #a0a0ff;
+            font-size: 1.1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 12px;
+            background: rgba(20, 20, 40, 0.7);
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icon span {
+            font-size: 0.7rem;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        .social-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            z-index: 1;
+        }
+        
+        .social-icon i, .social-icon span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .facebook { 
+            background: linear-gradient(135deg, #1877F2, #0d5cb6); 
+            box-shadow: 0 5px 15px rgba(24, 119, 242, 0.3);
+        }
+        .twitter { 
+            background: linear-gradient(135deg, #1DA1F2, #0c85d0); 
+            box-shadow: 0 5px 15px rgba(29, 161, 242, 0.3);
+        }
+        .linkedin { 
+            background: linear-gradient(135deg, #0077B5, #005582); 
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.3);
+        }
+        .whatsapp { 
+            background: linear-gradient(135deg, #25D366, #1da851); 
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        .reddit { 
+            background: linear-gradient(135deg, #FF5700, #cc4600); 
+            box-shadow: 0 5px 15px rgba(255, 87, 0, 0.3);
+        }
+        .telegram { 
+            background: linear-gradient(135deg, #0088cc, #006699); 
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3);
+        }
+        
+        .share-preview {
+            background: rgba(30, 30, 60, 0.8);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            border-left: 4px solid #00dbde;
+        }
+        
+        .share-preview h4 {
+            color: #00dbde;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .share-preview p {
+            color: #b0b0ff;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(20, 20, 40, 0.5);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #a0a0ff;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #8080cc;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(100, 100, 255, 0.1);
+        }
+        
+        .copyright a {
+            color: #00dbde;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+        
+        .tool-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(20, 20, 40, 0.5);
+            border-radius: 10px;
+        }
+        
+        .tool-info h3 {
+            color: #00dbde;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .tool-info p {
+            color: #b0b0ff;
+            line-height: 1.7;
+        }
+        
+        .professional-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #00dbde, #0099ff);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .btn {
+                flex: 1 100%;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .social-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .social-icon span {
+                font-size: 0.65rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .editor-section, .options-section {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .social-icon {
+                width: 55px;
+                height: 55px;
+            }
+        }
+        
+        /* Animation for futuristic feel */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 219, 222, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 219, 222, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 219, 222, 0); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-alt"></i> TEXT to TXT Converter <span class="professional-badge">PRO</span></h1>
+            <p class="tagline">Transform your plain text into professional, downloadable TXT files instantly</p>
+        </header>
+        
+        <main>
+            <div class="main-content">
+                <section class="editor-section">
+                    <h2 class="section-title"><i class="fas fa-edit"></i> Text Editor</h2>
+                    <textarea id="textInput" placeholder="Enter or paste your text here..."></textarea>
+                    
+                    <div class="buttons">
+                        <button id="convertBtn" class="btn btn-primary pulse">
+                            <i class="fas fa-file-download"></i> Convert to TXT
+                        </button>
+                        <button id="clearBtn" class="btn btn-secondary">
+                            <i class="fas fa-eraser"></i> Clear Text
+                        </button>
+                    </div>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <i class="fas fa-font"></i> Characters: <span id="charCount">0</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-paragraph"></i> Words: <span id="wordCount">0</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-file"></i> File Size: <span id="fileSize">0</span> KB
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="options-section">
+                    <h2 class="section-title"><i class="fas fa-cog"></i> File Options</h2>
+                    
+                    <div class="file-options">
+                        <div class="option-group">
+                            <label for="fileName"><i class="fas fa-file-signature"></i> File Name</label>
+                            <input type="text" id="fileName" value="thisizasif" placeholder="Enter file name">
+                        </div>
+                        
+                        <div class="option-group">
+                            <label for="fileDescription"><i class="fas fa-align-left"></i> File Description (Optional)</label>
+                            <input type="text" id="fileDescription" placeholder="Add a professional description to your file">
+                        </div>
+                    </div>
+                    
+                    <div class="social-sharing">
+                        <h3 class="social-title"><i class="fas fa-share-alt"></i> Share This Professional Tool</h3>
+                        
+                        <!-- <div class="share-preview">
+                            <h4>Social Media Preview:</h4>
+                            <p>When shared, this tool will display with a professional card showing: "Text to TXT Converter | Professional Tool" with a description and attractive image.</p>
+                        </div> -->
+                        
+                        <div class="social-icons">
+                            <div class="social-icon facebook" onclick="shareOnSocial('facebook')">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </div>
+                            <div class="social-icon twitter" onclick="shareOnSocial('twitter')">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </div>
+                            <div class="social-icon linkedin" onclick="shareOnSocial('linkedin')">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn</span>
+                            </div>
+                            <div class="social-icon whatsapp" onclick="shareOnSocial('whatsapp')">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp</span>
+                            </div>
+                            <div class="social-icon reddit" onclick="shareOnSocial('reddit')">
+                                <i class="fab fa-reddit-alien"></i>
+                                <span>Reddit</span>
+                            </div>
+                            <div class="social-icon telegram" onclick="shareOnSocial('telegram')">
+                                <i class="fab fa-telegram"></i>
+                                <span>Telegram</span>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="share-preview">
+                            <h4>Professional Sharing Features:</h4>
+                            <p>• Open Graph tags for rich Facebook/LinkedIn previews<br>
+                               • Twitter Card for professional Twitter displays<br>
+                               • High-quality preview image<br>
+                               • Proper title, description, and URL formatting</p>
+                        </div> -->
+                    </div>
+                    
+                    <div class="tool-info">
+                        <h3>About This Professional Tool</h3>
+                        <p>This is a modern, professional-grade text-to-TXT converter that works flawlessly on all devices. Built with a futuristic design, it includes professional social sharing capabilities with rich preview cards. Simply enter your text, customize the filename if needed, and download it as a .txt file. Perfect for professionals, students, and anyone needing to save notes, articles, code snippets, or any plain text content with a professional touch.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="copyright">
+                <p>&copy; 2023 <a href="https://thisizasif.com" target="_blank">thisizasif</a> | Advanced Text to TXT Converter | All rights reserved</p>
+                <p>Professional tool for text conversion across all devices | Designed with futuristic aesthetics</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: #7070aa;">
+                    <i class="fas fa-shield-alt"></i> Your text is processed locally and never sent to any server
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // DOM Elements
+        const textInput = document.getElementById('textInput');
+        const convertBtn = document.getElementById('convertBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const fileNameInput = document.getElementById('fileName');
+        const fileDescriptionInput = document.getElementById('fileDescription');
+        const charCount = document.getElementById('charCount');
+        const wordCount = document.getElementById('wordCount');
+        const fileSize = document.getElementById('fileSize');
+        
+        // Initial stats calculation
+        updateStats();
+        
+        // Event Listeners
+        textInput.addEventListener('input', updateStats);
+        fileNameInput.addEventListener('input', updateStats);
+        fileDescriptionInput.addEventListener('input', updateStats);
+        
+        convertBtn.addEventListener('click', convertToTxt);
+        clearBtn.addEventListener('click', clearText);
+        
+        // Update character, word, and file size stats
+        function updateStats() {
+            const text = textInput.value;
+            const name = fileNameInput.value;
+            const description = fileDescriptionInput.value;
+            
+            // Character count
+            const chars = text.length;
+            charCount.textContent = chars.toLocaleString();
+            
+            // Word count
+            const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+            wordCount.textContent = words.toLocaleString();
+            
+            // File size estimation (in KB)
+            const totalContent = `${name}\n${description}\n\n${text}`;
+            const sizeInBytes = new Blob([totalContent]).size;
+            const sizeInKB = (sizeInBytes / 1024).toFixed(2);
+            fileSize.textContent = sizeInKB;
+        }
+        
+        // Convert text to TXT file and trigger download
+        function convertToTxt() {
+            const text = textInput.value;
+            const name = fileNameInput.value || 'converted-text';
+            const description = fileDescriptionInput.value;
+            
+            if (!text.trim()) {
+                alert('Please enter some text to convert.');
+                textInput.focus();
+                return;
+            }
+            
+            // Create file content with optional description
+            let fileContent = text;
+            if (description.trim()) {
+                fileContent = `Description: ${description}\n\n${text}`;
+            }
+            
+            // Add timestamp for professionalism
+            const timestamp = new Date().toISOString().split('T')[0];
+            fileContent = `File: ${name}.txt\nGenerated: ${timestamp}\nTool: Text to TXT Converter by thisizasif\n${description ? 'Description: ' + description + '\n' : ''}\n${'='.repeat(50)}\n\n${text}`;
+            
+            // Create a Blob with the text
+            const blob = new Blob([fileContent], { type: 'text/plain' });
+            
+            // Create a download link
+            const downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = `${name}.txt`;
+            
+            // Trigger download
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            
+            // Visual feedback
+            convertBtn.innerHTML = '<i class="fas fa-check"></i> File Downloaded!';
+            convertBtn.classList.add('btn-primary');
+            convertBtn.classList.remove('pulse');
+            
+            setTimeout(() => {
+                convertBtn.innerHTML = '<i class="fas fa-file-download"></i> Convert to TXT';
+                convertBtn.classList.add('pulse');
+            }, 2000);
+        }
+        
+        // Clear the text area
+        function clearText() {
+            textInput.value = '';
+            updateStats();
+            textInput.focus();
+            
+            // Visual feedback
+            clearBtn.innerHTML = '<i class="fas fa-check"></i> Cleared!';
+            setTimeout(() => {
+                clearBtn.innerHTML = '<i class="fas fa-eraser"></i> Clear Text';
+            }, 1500);
+        }
+        
+        // Professional Social sharing function with enhanced previews
+        function shareOnSocial(platform) {
+            const toolTitle = "Text to TXT Converter | Professional Tool by thisizasif";
+            const toolDescription = "Convert plain text into downloadable TXT files with this modern, professional tool.";
+            const toolUrl = window.location.href || "https://thisizasif.github.io/txt/index.html";
+            const toolHashtags = "";
+            const toolImage = "https://www.adobe.com/uk/acrobat/resources/document-files/text-files/txt.html";
+            
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(toolUrl)}&quote=${encodeURIComponent(toolDescription)}&hashtag=${encodeURIComponent('#TextToTXT')}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(toolTitle)}&url=${encodeURIComponent(toolUrl)}&hashtags=${encodeURIComponent(toolHashtags)}&via=thisizasif`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(toolUrl)}&title=${encodeURIComponent(toolTitle)}&summary=${encodeURIComponent(toolDescription)}&source=${encodeURIComponent('thisizasif')}`;
+                    break;
+                case 'whatsapp':
+                    shareUrl = `https://wa.me/?text=${encodeURIComponent(`*${toolTitle}*\n\n${toolDescription}\n\n${toolUrl}`)}`;
+                    break;
+                case 'reddit':
+                    shareUrl = `https://www.reddit.com/submit?url=${encodeURIComponent(toolUrl)}&title=${encodeURIComponent(toolTitle)}`;
+                    break;
+                case 'telegram':
+                    shareUrl = `https://t.me/share/url?url=${encodeURIComponent(toolUrl)}&text=${encodeURIComponent(`${toolTitle}\n\n${toolDescription}`)}`;
+                    break;
+            }
+            
+            // Open sharing window
+            if (shareUrl) {
+                const width = 600;
+                const height = 500;
+                const left = (window.innerWidth - width) / 2;
+                const top = (window.innerHeight - height) / 2;
+                
+                window.open(shareUrl, 'shareWindow', `width=${width},height=${height},left=${left},top=${top}`);
+                
+                // Show success message
+                showShareNotification(platform);
+            }
+        }
+        
+        // Show notification when sharing
+        function showShareNotification(platform) {
+            const platformNames = {
+                'facebook': 'Facebook',
+                'twitter': 'Twitter',
+                'linkedin': 'LinkedIn',
+                'whatsapp': 'WhatsApp',
+                'reddit': 'Reddit',
+                'telegram': 'Telegram'
+            };
+            
+            // Create notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #00dbde, #0099ff);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                z-index: 1000;
+                font-family: 'Exo 2', sans-serif;
+                font-weight: 500;
+                animation: fadeIn 0.3s;
+                max-width: 300px;
+            `;
+            
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-check-circle" style="font-size: 1.2rem;"></i>
+                    <div>
+                        <div style="font-weight: bold;">Sharing on ${platformNames[platform]}</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Professional preview card will be displayed</div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'fadeOut 0.3s';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Add CSS for notification animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Add some futuristic interaction effects
+        document.querySelectorAll('.social-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.05)';
+            });
+            
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Add a subtle typing effect to the textarea placeholder
+        const placeholderText = "Enter or paste your text here...";
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < placeholderText.length && !textInput.value) {
+                textInput.setAttribute('placeholder', placeholderText.substring(0, i+1));
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        
+        // Start typing effect after page loads
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 1000);
+            
+            // Add floating animation to some elements
+            const badge = document.querySelector('.professional-badge');
+            if (badge) {
+                badge.classList.add('floating');
+            }
+        });
+        
+        // Update page URL for sharing (in a real app, this would be your actual URL)
+        // This is just for demonstration
+        if (window.history && window.history.replaceState) {
+            const cleanUrl = window.location.origin + window.location.pathname;
+            window.history.replaceState({}, document.title, cleanUrl);
+        }
+    </script>
+</body>
+</html>
