@@ -6,9 +6,9 @@ Optimized version below. Added SEO keywords, description, metadata block, keywor
 
 **Convert text into .txt files instantly with a clean, fast, browser-based tool**
 
-![Txtify Pro Banner](https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format\&fit=crop\&w=1470\&q=80)
+![Txtify Pro Banner](https://www.geeksforgeeks.org/kotlin/insert-and-fetch-text-from-a-text-file-in-android/)
 
-[![Live Demo](https://img.shields.io/badge/🌐-Live_Demo-0099ff?style=for-the-badge)](https://txtify.thisizasif.com)
+[![Live Demo](https://img.shields.io/badge/🌐-Live_Demo-0099ff?style=for-the-badge)](https://thisizasif.github.io/txtify)
 [![MIT License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/thisizasif/txtify?style=for-the-badge)](https://github.com/thisizasif/txtify/stargazers)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](https://makeapullrequest.com)
