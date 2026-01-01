@@ -6,7 +6,7 @@ Optimized version below. Added SEO keywords, description, metadata block, keywor
 
 **Convert text into .txt files instantly with a clean, fast, browser-based tool**
 
-![Txtify Pro Banner](https://www.geeksforgeeks.org/kotlin/insert-and-fetch-text-from-a-text-file-in-android/)
+![Txtify Pro Banner](https://github.com/thisizasif/txtify/blob/main/txtify.png?raw=true)
 
 [![Live Demo](https://img.shields.io/badge/🌐-Live_Demo-0099ff?style=for-the-badge)](https://thisizasif.github.io/txtify)
 [![MIT License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
